@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Prolis.BLL</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <Platforms>AnyCPU;x64;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Prolis.DAL\Prolis.DAL.vbproj" />
+    <ProjectReference Include="..\Prolis.Entities\Prolis.Entities.vbproj" />
+    <ProjectReference Include="..\Prolis.Utils\Prolis.Utils.vbproj" />
+  </ItemGroup>
+
+</Project>

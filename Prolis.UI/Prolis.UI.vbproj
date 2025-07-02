@@ -1,0 +1,123 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<StartupObject>Sub Main</StartupObject>
+		<UseWindowsForms>true</UseWindowsForms>
+		<MyType>WindowsForms</MyType>
+		<ImportedNamespaces>DYMO.Common=False,DYMO.Common.PrinterSupport=False,DYMO.LabelAPI=False,DYMO.LabelAPI.Public=False,DymoSDK=False,DymoSDK.Implementations=False,DymoSDK.Interfaces=False,System.Data=False,System.Drawing=False,System.Windows.Forms=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,Prolis.UI=True</ImportedNamespaces>
+		<Platforms>AnyCPU;x64;x86</Platforms>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Import Include="DYMO.Common" />
+		<Import Include="DYMO.Common.PrinterSupport" />
+		<Import Include="DYMO.LabelAPI" />
+		<Import Include="DYMO.LabelAPI.Public" />
+		<Import Include="DymoSDK" />
+		<Import Include="DymoSDK.Implementations" />
+		<Import Include="DymoSDK.Interfaces" />
+		<Import Include="System.Data" />
+		<Import Include="System.Drawing" />
+		<Import Include="System.Windows.Forms" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DYMO.Connect.SDK" Version="1.4.4.21" />
+		<PackageReference Include="DYMO.LabelAPI.Windows.NativeAssets" Version="1.4.5.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.4" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.4" />
+		<PackageReference Include="NLog" Version="5.4.0" />
+		<PackageReference Include="NLog.Extensions.Logging" Version="5.4.0" />
+		<PackageReference Include="Syncfusion.Licensing" Version="28.2.9" />
+		<PackageReference Include="Syncfusion.Pdf.WinForms" Version="28.2.9" />
+		<PackageReference Include="Syncfusion.PdfToImageConverter.WinForms" Version="28.2.9" />
+		<PackageReference Include="Syncfusion.PdfViewer.Windows" Version="28.2.9" />
+		<PackageReference Include="Syncfusion.Shared.Base" Version="28.2.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<RuntimeHostConfigurationOption Include="DYMO.Connect.DeveloperMode" Value="true" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LicenseManager\LicenseManager.vbproj" />
+		<ProjectReference Include="..\Prolis.BLL\Prolis.BLL.vbproj" />
+		<ProjectReference Include="..\Prolis.Entities\Prolis.Entities.vbproj" />
+		<ProjectReference Include="..\Prolis.ReportingHost\Prolis.ReportingHost.vbproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="ADODB">
+		  <HintPath>..\..\..\..\Documents\GitHub\LicenseManager\LicenseManager\LicenseManager\LicenseManager\bin\Debug\adodb.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.Common">
+		  <HintPath>bin\Debug\net8.0-windows\x86\DYMO.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.CrossPlatform.Common">
+		  <HintPath>bin\Debug\net8.0-windows\DYMO.CrossPlatform.Common.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.CrossPlatform.Common.PlatformSpecific">
+		  <HintPath>bin\Debug\net8.0-windows\x86\DYMO.CrossPlatform.Common.PlatformSpecific.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.LabelAPI">
+		  <HintPath>bin\Debug\net8.0-windows\DYMO.LabelAPI.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.LabelAPI.PlatformSpecific">
+		  <HintPath>bin\Debug\net8.0-windows\x86\DYMO.LabelAPI.PlatformSpecific.dll</HintPath>
+		</Reference>
+		<Reference Include="DYMO.PrinterCommands">
+		  <HintPath>bin\Debug\net8.0-windows\x86\DYMO.PrinterCommands.dll</HintPath>
+		</Reference>
+		<Reference Include="DymoSDK">
+		  <HintPath>bin\Debug\net8.0-windows\x86\DymoSDK.dll</HintPath>
+		</Reference>
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="My Project\Application.Designer.vb">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Application.myapp</DependentUpon>
+		</Compile>
+		<Compile Update="My Project\Resources.Designer.vb">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="My Project\Settings.Designer.vb">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="My Project\Resources.resx">
+			<CustomToolNamespace>My.Resources</CustomToolNamespace>
+			<Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.vb</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="My Project\Application.myapp">
+			<Generator>MyApplicationCodeGenerator</Generator>
+			<LastGenOutput>Application.Designer.vb</LastGenOutput>
+		</None>
+		<None Update="My Project\Settings.settings">
+			<CustomToolNamespace>My</CustomToolNamespace>
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.vb</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+		<Exec Command="xcopy &quot;$(SolutionDir)Images&quot; &quot;$(TargetDir)Images&quot; /E /I /Y" />
+	</Target>
+
+</Project>
